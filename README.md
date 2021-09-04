@@ -36,7 +36,16 @@ gh auth login  # only first time
 gh pr checkout 39
 ```
 
-# Openrgb
+## Flash
+
+1. Connect the keyboard DIRECTLY to the notebook using a HIGH QUALITY usb cable
+2. Put the keyboard in bootloader mode with `Fn + Esc`
+3. Open [sonix-flasher](https://github.com/SonixQMK/sonix-flasher/tags) in windows
+4. Check that the revealed keyboard is in bootloader mode `0c45:7040`
+5. Select `SN32F24X` under 'Device' and select `0x00` as the qmk offset
+6. Click 'Flash QMK...' and find the compiled firmware
+
+## Openrgb
 
 ```bash
 # check that the two branches are aligned
