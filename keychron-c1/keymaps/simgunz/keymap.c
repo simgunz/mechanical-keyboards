@@ -118,6 +118,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             }
 };
 
+// combos, change COMBO_COUNT in config.h before adding combos!
+const uint16_t PROGMEM combo_jk[] = {KC_J, KC_K, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(combo_jk, KC_ESC),
+};
+
 void dip_switch_update_user(uint8_t index, bool active){
   index = 1;
   if(active) { //Mac mode
