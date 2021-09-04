@@ -40,6 +40,7 @@ enum layer_names {
 #define KC_NWRD LCTL(KC_RIGHT)
 #define KC_BWRD LCTL(KC_BSPC)
 #define KC_DWRD LCTL(KC_DEL)
+#define KC_SHIN LSFT(KC_INS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -112,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS },
                 {   KC_TRNS,   KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    KC_F12,    KC_TRNS,   KC_TRNS,   KC_TRNS },
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_PWRD,   KC_HOME,   KC_END,    KC_NWRD,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS },
-                {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  KC_TRNS,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO   },
+                {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  KC_SHIN,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO   },
                 {   KC_TRNS,   KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_BWRD,   KC_BSPC,   KC_DEL,    KC_DWRD,   KC_NO,     KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO   },
                 {   KC_TRNS,   KC_LALT,   KC_LWIN,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS }
             }
