@@ -2,7 +2,7 @@
 
 # Redragon
 
-[https://docs.google.com/spreadsheets/d/1uBWiHgeF1GwCICTLEvo8Vl19wy8l_bP2lSloxkSTgeg/edit#gid=0](https://docs.google.com/spreadsheets/d/1uBWiHgeF1GwCICTLEvo8Vl19wy8l_bP2lSloxkSTgeg/edit#gid=0)
+[List of redragon keyboards that support sonix qmk](https://docs.google.com/spreadsheets/d/1uBWiHgeF1GwCICTLEvo8Vl19wy8l_bP2lSloxkSTgeg/edit#gid=0)
 
 # Keychron C1
 
@@ -15,48 +15,32 @@ Chip `SN32F248B`
 ## Build
 
 ```bash
-cd /media/dataHD/linux/mechanical-keyboards/keychron-c1
-git clone --recurse-submodules -j8 https://github.com/SonixQMK/qmk_firmware.git
-cd qmk_firmware
-gh auth login  # only first time
-gh pr checkout 39
-```
+# setup the build environment
+./init.sh
 
-```bash
-sc-start docker
-docker pull jath03/sonix_base_container
-# first time
-docker run --name sonix-qmk --interactive --tty -v /media/dataHD/linux/mechanical-keyboards/keychron-c1/qmk_firmware/:/qmk jath03/sonix_base_container
-# next times
-docker container start -i sonix-qmk
-```
-
-Link keymaps and scripts
-
-```bash
-# link the keymap folder
-mkdir -p keymaps/simgunz
-ln -sfr $(pwd)/keymaps/simgunz qmk_firmware/keyboards/keychron/c1/keymaps/simgunz
-
-# link the build script
-ln -sfr $(pwd)/bin/build_c1_default.py qmk_firmware/bin/
-ln -sfr $(pwd)/bin/build_c1_simgunz.py qmk_firmware/bin/
-
-```
-
-For openrgb
-
-```bash
-# check that the two branches are aligned
-git diff HEAD..origin/sn32_openrgb -- keyboards/keychron/c1/
-git checkout sn32_openrgb
+# enter the docker build environment
+./start_env.sh
 ```
 
 Inside docker
 
 ```bash
-cd /qmk/
-python3 bin/build_c1_default.py
+cd /qmk/qmk_firmware
+python3 bin/build_c1_simgunz.py
+```
 
+To checkout specific pull requests
+
+```bash
+gh auth login  # only first time
+gh pr checkout 39
+```
+
+# Openrgb
+
+```bash
+# check that the two branches are aligned
+git diff HEAD..origin/sn32_openrgb -- keyboards/keychron/c1/
+git checkout sn32_openrgb
 ```
 
