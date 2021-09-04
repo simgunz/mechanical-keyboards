@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS },
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO   },
                 {   KC_TRNS,   KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO,     RGB_SPI,   KC_NO   },
-                {   KC_TRNS,   KC_LALT,   KC_LWIN,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   RGB_SAI,   RGB_SPD,   RGB_SAD }
+                {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   RGB_SAI,   RGB_SPD,   RGB_SAD }
             },
 /*
 				+--------------------------------------------------------------------------+----------------+
@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_PWRD,   KC_HOME,   KC_END,    KC_NWRD,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS },
                 {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  KC_SHIN,   KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO   },
                 {   KC_TRNS,   KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_BWRD,   KC_BSPC,   KC_DEL,    KC_DWRD,   KC_NO,     KC_TRNS,   KC_NO,     KC_TRNS,   KC_NO   },
-                {   KC_TRNS,   KC_LALT,   KC_LWIN,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS }
+                {   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_NO,     KC_NO,     KC_NO,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS }
             }
 };
 
