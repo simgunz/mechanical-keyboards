@@ -26,7 +26,7 @@ Inside docker
 
 ```bash
 cd /qmk/qmk_firmware
-python3 bin/build_c1_simgunz.py
+make keychron/c1:simgunz
 ```
 
 To checkout specific pull requests
