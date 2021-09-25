@@ -33,7 +33,7 @@ enum layer_names {
 // media keys
 #define KC_TASK LWIN(KC_Q)
 #define KC_FLXP LWIN(KC_E)
-#define KC_MIC LWIN(KC_MUTE)
+#define KC_MIC F20
 
 // key combinations
 #define KC_PWRD LCTL(KC_LEFT)
