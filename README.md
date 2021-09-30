@@ -66,3 +66,8 @@ git diff HEAD..origin/sn32_openrgb -- keyboards/keychron/c1/
 git checkout sn32_openrgb
 ```
 
+# Troubleshoot
+
+## The keyboard does not work after boot
+
+https://github.com/SonixQMK/qmk_firmware/issues/78
