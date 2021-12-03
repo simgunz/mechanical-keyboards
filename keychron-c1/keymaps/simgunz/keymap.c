@@ -58,7 +58,7 @@ enum custom_keycodes {
 #define KC_DWRD LCTL(KC_DEL)
 #define KC_SHIN LSFT(KC_INS)
 
-#define PTT_TAPPING_TERM 1000
+#define PTT_TAPPING_TERM 400
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*  Windows layout
