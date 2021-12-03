@@ -144,6 +144,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     }
 };
 
+bool muted = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     static uint16_t ptt_timer;
     switch (keycode) {
@@ -154,10 +156,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if(record->event.pressed) {
                 ptt_timer = timer_read();
                 tap_code(KC_MIC);
+                muted = !muted;
             } else {
                 if (timer_elapsed(ptt_timer) > PTT_TAPPING_TERM) {
                     tap_code(KC_MIC);
+                    muted = !muted;
                 }
+            }
+            if (muted) {
+                // pulsating red light when mic muted
+                rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
+                rgb_matrix_set_color_all(RGB_RED);
+                rgb_matrix_set_speed_noeeprom(255);
+                rgb_matrix_enable_noeeprom();
+            } else {
+                rgb_matrix_disable_noeeprom();
             }
             return false; // keypress handled
     }
@@ -165,8 +178,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void keyboard_post_init_user(void) {
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
     // Toggle lights off by default
-    rgblight_disable();
+    rgb_matrix_disable();
 }
 
 // combos, change COMBO_COUNT in config.h before adding combos!
