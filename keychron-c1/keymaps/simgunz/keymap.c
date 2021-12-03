@@ -177,12 +177,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true; // keypress not handled
 }
 
-void keyboard_post_init_user(void) {
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
-    // Toggle lights off by default
-    rgb_matrix_disable();
-}
-
 // combos, change COMBO_COUNT in config.h before adding combos!
 const uint16_t PROGMEM combo_jk[] = {KC_J, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
