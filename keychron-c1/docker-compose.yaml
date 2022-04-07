@@ -3,7 +3,7 @@ version: "2.4"
 
 services:
   sonix-qmk-compile:
-    image: "jath03/sonix_base_container:latest"
+    image: "qmkfm/qmk_compiler"
     volumes:
       - "./qmk_firmware:/qmk"
       - "./keymaps/simgunz:/qmk/keyboards/keychron/c1/keymaps/simgunz"
