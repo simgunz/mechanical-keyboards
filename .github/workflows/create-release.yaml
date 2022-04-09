@@ -19,6 +19,7 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - run: ./init.sh
       - run: docker-compose up
+      - run: cd qmk_firmware && sha256sum keychron_c1_simgunz.bin > sha256sum.txt
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
@@ -38,3 +39,12 @@ jobs:
           asset_name: keychron_c1_simgunz-${{ steps.vars.outputs.tag }}.bin
           asset_path: keychron-c1/qmk_firmware/keychron_c1_simgunz.bin
           asset_content_type: application/octet-stream
+      - name: Upload checksum
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_name: sha256sum-${{ steps.vars.outputs.tag }}.txt
+          asset_path: keychron-c1/qmk_firmware/sha256sum.txt
+          asset_content_type: text/plain
