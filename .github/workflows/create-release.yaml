@@ -1,0 +1,40 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - '[0-9].[0-9].[0-9]*' # Push events to semver tags
+
+jobs:
+
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: keychron-c1
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set variables
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      - run: ./init.sh
+      - run: docker-compose up
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ steps.vars.outputs.tag }}
+          draft: false
+          prerelease: ${{ contains(steps.vars.outputs.tag, '-') }}
+      - name: Upload release asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_name: keychron_c1_simgunz-${{ steps.vars.outputs.tag }}.bin
+          asset_path: keychron-c1/qmk_firmware/keychron_c1_simgunz.bin
+          asset_content_type: application/octet-stream
