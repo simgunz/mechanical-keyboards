@@ -191,6 +191,6 @@ combo_t key_combos[COMBO_COUNT] = {
 
 // Tap Dance definitions
 qk_tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
+    // Tap once for right shift, twice for Ctrl+;, the vscode leader
     [TD_VSTS] = ACTION_TAP_DANCE_DOUBLE(KC_RSFT, LCTL(KC_SCLN)),
 };
