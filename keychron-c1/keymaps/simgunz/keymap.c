@@ -54,7 +54,7 @@ enum {
 
 // layer modifiers
 #define KC_MOFN MO(WIN_FN)
-#define KC_MOCP LT(WIN_CAPS, KC_CAPS)
+#define KC_MOCP MO(WIN_CAPS)
 
 // key combinations
 #define KC_PWRD LCTL(KC_LEFT)

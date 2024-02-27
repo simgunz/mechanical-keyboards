@@ -41,3 +41,9 @@ git checkout sn32_openrgb
 
 - The versions of both `qmk_firmware` and `sonix-flasher` are fixed in the `init.sh` script, change the versions there to update to a newer version
 - [2022-04-09] As for today the main branch to use seems to be `sn32_master`. The `sn32_stable` contains the latest changes to the `C1` related files.
+
+## Troubleshoot
+
+### Failed to build hidapi
+
+- Remove the version from `requirements.txt` of sonix flasher
