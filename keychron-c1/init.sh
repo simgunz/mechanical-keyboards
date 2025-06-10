@@ -1,5 +1,5 @@
-#!/usr/bin/env bash 
-QMK_FIRMWARE_REF=3f94c63
+#!/usr/bin/env bash
+QMK_FIRMWARE_REF=sn32_master_stable
 SONIX_FLASHER_REF=v0.2.4
 
 if [[ $1 = '--help' ]]; then

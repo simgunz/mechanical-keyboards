@@ -6,6 +6,8 @@ vid:pid (bootloader) `0c45:7040`
 
 Chip `SN32F248B`
 
+Variant: RGB
+
 ## Build
 
 ```bash
@@ -40,8 +42,21 @@ git checkout sn32_openrgb
 ## Notes
 
 - The versions of both `qmk_firmware` and `sonix-flasher` are fixed in the `init.sh` script, change the versions there to update to a newer version
+
 - [2022-04-09] As for today the main branch to use seems to be `sn32_master`. The `sn32_stable` contains the latest changes to the `C1` related files.
-- [2025-06-04] The commit used before the fetch was `3f94c632`
+
+- [2025-06-04] The commit of qmk_firmware used before the fetch was `3f94c632`
+
+- [2024-06-10]
+
+  - The commit of `qmk_firmware` at `sn32_master_stable` is `41aa96b0`
+
+  - `sn32_master_stable` was last updated in 2022, this is the correct branch for the Keychron C1
+
+  - Keychron C1 keybords folder now contains three types: plain, white, rgb
+
+    
+
 
 ## Troubleshoot
 
