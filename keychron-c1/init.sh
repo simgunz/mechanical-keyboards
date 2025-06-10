@@ -15,6 +15,9 @@ echo "Get sonix firmware..."
   git submodule update --init --recursive --jobs 4
 )
 
+echo "Link my keymap to qmk_firmware directory..."
+ln -s "$(pwd)/keymaps/simgunz/" qmk_firmware/keyboards/keychron/c1/rgb/keymaps/simgunz
+
 if [[ $1 = '--flasher' ]]; then
   echo "Get sonix flasher..."
   [[ -d sonix-flasher ]] || git clone https://github.com/SonixQMK/sonix-flasher.git
