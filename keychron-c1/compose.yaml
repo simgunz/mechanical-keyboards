@@ -1,6 +1,4 @@
 ---
-version: "2.4"
-
 services:
   sonix-qmk-compile:
     image: "jath03/sonix_base_container:latest"
