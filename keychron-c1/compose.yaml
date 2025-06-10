@@ -4,6 +4,6 @@ services:
     image: "jath03/sonix_base_container:latest"
     volumes:
       - "./qmk_firmware:/qmk"
-      - "./keymaps/simgunz:/qmk/keyboards/keychron/c1/keymaps/simgunz"
+      - "./keymaps/simgunz:/qmk/keyboards/keychron/c1/rgb/keymaps/simgunz"
     working_dir: "/qmk"
     command: ["make", "keychron/c1:simgunz"]
