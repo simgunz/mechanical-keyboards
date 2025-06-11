@@ -1,5 +1,10 @@
 # Keychron C1
 
+- **Normal mode VID:PID:** `05ac:024f`
+- **Bootloader VID:PID:** `0c45:7040`
+- **Chip:** `SN32F248B`
+- **Variant:** RGB
+
 ## Quickstart
 
 Use the provided Makefile to automate setup, build, and flashing:
@@ -13,13 +18,6 @@ Use the provided Makefile to automate setup, build, and flashing:
    - Put the keyboard in bootloader mode: press `Fn + Esc` on the keyboard.
 4. **Flash the firmware:**
    - `make flash`
-
-## Parameters
-
-- **Normal mode VID:PID:** `05ac:024f`
-- **Bootloader VID:PID:** `0c45:7040`
-- **Chip:** `SN32F248B`
-- **Variant:** RGB
 
 ## Build (for latest qmk_firmware at sn32_master_stable)
 
