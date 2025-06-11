@@ -1,5 +1,20 @@
 # Keychron C1
 
+## Quickstart
+
+Use the provided Makefile to automate setup, build, and flashing:
+
+```bash
+# 1. Set up the environment (clones firmware, builds flasher, links keymap)
+make setup
+
+# 2. Build the firmware (compiles using QMK in nix-shell)
+make build
+
+# 3. Flash the firmware to your keyboard (ensure bootloader mode)
+make flash
+```
+
 ## Parameters
 
 - **Normal mode VID:PID:** `05ac:024f`
