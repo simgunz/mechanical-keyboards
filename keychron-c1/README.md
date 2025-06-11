@@ -4,16 +4,15 @@
 
 Use the provided Makefile to automate setup, build, and flashing:
 
-```bash
-# 1. Set up the environment (clones firmware, builds flasher, links keymap)
-make setup
-
-# 2. Build the firmware (compiles using QMK in nix-shell)
-make build
-
-# 3. Flash the firmware to your keyboard (ensure bootloader mode)
-make flash
-```
+1. **Set up the environment:**
+   - `make setup` (clones firmware, builds flasher, links keymap)
+2. **Build the firmware:**
+   - `make build` (compiles using QMK in nix-shell)
+3. **Prepare for flashing:**
+   - Connect the keyboard **directly** to your notebook using a high-quality USB cable (avoid hubs).
+   - Put the keyboard in bootloader mode: press `Fn + Esc` on the keyboard.
+4. **Flash the firmware:**
+   - `make flash`
 
 ## Parameters
 
@@ -41,9 +40,7 @@ qmk compile
 
 The resulting firmware binary will be copied as `keychron_c1_rgb_simgunz.bin` to the `qmk_firmware` folder.
 
-## Flash
-
-### SonixFlasherC (CLI)
+## Flash with SonixFlasherC (CLI)
 
 1. Ensure `sonixflasher` is available (it will be pulled and built automatically by `init.sh`).
 2. Connect the keyboard **directly** to your notebook using a high-quality USB cable (avoid hubs).
@@ -51,24 +48,10 @@ The resulting firmware binary will be copied as `keychron_c1_rgb_simgunz.bin` to
 4. Confirm the device appears as `0c45:7040` (bootloader mode) using `lsusb` or similar.
 5. Flash the firmware with:
    ```bash
-   ./sonixflasher --vidpid 0c45/7040 --file qmk_firmware/keychron_c1_rgb_simgunz.bin --offset 0x00
+   sudo ./sonixflasher --vidpid 0c45/7040 --file qmk_firmware/keychron_c1_rgb_simgunz.bin --offset 0x00
    ```
    - Adjust the path to the firmware binary if needed.
    - The `--offset 0x00` is required for QMK firmware.
-
-### sonix-flasher (UI)
-
-1. Connect the keyboard **directly** to your notebook using a high-quality USB cable (avoid hubs).
-2. Enter bootloader mode: press `Fn + Esc` on the keyboard.
-3. Run the sonix-flasher UI tool:
-   ```bash
-   ./run.sh
-   ```
-4. Confirm the keyboard appears as `0c45:7040` (bootloader mode).
-5. In the UI:
-   - Select `SN32F24X` under 'Device'.
-   - Set QMK offset to `0x00`.
-   - Click 'Flash QMK...' and select the compiled firmware (`qmk_firmware/keychron_c1_simgunz.bin`).
 
 ## Openrgb (unverified as for 2025-05-25)
 
@@ -109,6 +92,7 @@ git checkout sn32_openrgb
 
 These instructions apply to repository versions up to **0.2.6**, which use `qmk_firmware` at commit `3f94c632`.
 
+### Build
 - Running `./init.sh` will:
   - Clone `qmk_firmware` at commit `3f94c632` and initialize its submodules.
   - If run as `./init.sh --flasher`, it will also clone the `sonix-flasher` UI tool.
@@ -125,3 +109,17 @@ docker compose up
 ```
 
 The resulting firmware binary will be located at `qmk_firmware/keychron_c1_simgunz.bin`.
+
+### Flash with sonix-flasher (UI)
+
+1. Connect the keyboard **directly** to your notebook using a high-quality USB cable (avoid hubs).
+2. Enter bootloader mode: press `Fn + Esc` on the keyboard.
+3. Run the sonix-flasher UI tool:
+   ```bash
+   ./run.sh
+   ```
+4. Confirm the keyboard appears as `0c45:7040` (bootloader mode).
+5. In the UI:
+   - Select `SN32F24X` under 'Device'.
+   - Set QMK offset to `0x00`.
+   - Click 'Flash QMK...' and select the compiled firmware (`qmk_firmware/keychron_c1_simgunz.bin`).
