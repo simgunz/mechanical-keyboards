@@ -15,17 +15,17 @@ setup:  ## Run environment setup script
 	./init.sh
 
 build:  ## Build the firmware
-	cd $(QMK_DIR) && nix-shell --run 'qmk config user.keyboard=$(KEYBOARD) && qmk config user.keymap=$(KEYMAP) && qmk compile'
+	@cd $(QMK_DIR) && nix-shell --run 'qmk config user.keyboard=$(KEYBOARD) && qmk config user.keymap=$(KEYMAP) && qmk compile'
 
 flash:  ## Flash the firmware to the keyboard
 	@if [ ! -f $(FIRMWARE_BIN) ]; then \
 		echo "Firmware binary not found: $(FIRMWARE_BIN). Run 'make build' first."; \
 		exit 1; \
 	fi
-	$(FLASHER) --vidpid $(VIDPID) --file $(FIRMWARE_BIN) --offset 0x00
+	@sudo $(FLASHER) --vidpid $(VIDPID) --file $(FIRMWARE_BIN) --offset 0x00
 
 clean:  ## Remove built firmware binary
-	rm -f $(QMK_DIR)/keychron_c1_rgb_$(KEYMAP).bin
+	@rm -f $(QMK_DIR)/keychron_c1_rgb_$(KEYMAP).bin
 
 help:  ## Show this help
 	@echo "Specify a command. The choices are:"
