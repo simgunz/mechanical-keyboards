@@ -30,7 +30,13 @@ enum layer_names {
 };
 
 enum {
-  RST_KB = SAFE_RANGE
+  RST_KB = SAFE_RANGE,
+  KC_TSTC,  // Test: Run Test at Cursor (Ctrl+; C)
+  KC_TSTF,  // Test: Run Tests in Current File (Ctrl+; F)
+  KC_TSTA,  // Test: Run All Tests (Ctrl+; A)
+  KC_TSTL,  // Test: Rerun Last Run (Ctrl+; L)
+  KC_TSTD,  // Test: Debug Last Run (Ctrl+; Ctrl+L)
+  KC_TSTX   // Test: Rerun Failed Tests (Ctrl+; E)
 };
 
 // custom tap dance
@@ -62,6 +68,7 @@ enum {
 #define KC_BWRD LCTL(KC_BSPC)
 #define KC_DWRD LCTL(KC_DEL)
 #define KC_SHIN LSFT(KC_INS)
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*  Windows layout
@@ -113,9 +120,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /*  0          1          2          3          4          5          6          7          8          9          10         11         12         13         14         15         16   */
         {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______ },
         {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_7,      KC_8,      KC_9,      _______,   _______,   _______,   _______,   _______,   _______,   _______ },
-        {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_4,      KC_5,      KC_6,      _______,   _______,   _______,   _______,   _______,   _______,   _______ },
-        {   _______,   KC_NO,     _______,   _______,   _______,   _______,   _______,   KC_1,      KC_2,      KC_3,      _______,   _______,   _______,   _______,   _______,   _______,   _______ },
-        {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_0,      KC_COMM,   KC_DOT,    _______,   _______,   _______,   _______,   _______,   _______ },
+        {   _______,   _______,   _______,   _______,   _______,   KC_TSTC,   KC_TSTL,   KC_4,      KC_5,      KC_6,      _______,   _______,   _______,   _______,   _______,   _______,   _______ },
+        {   _______,   KC_NO,     _______,   _______,   _______,   KC_TSTF,   KC_TSTD,   KC_1,      KC_2,      KC_3,      _______,   _______,   _______,   _______,   _______,   _______,   _______ },
+        {   _______,   _______,   _______,   _______,   _______,   _______,   KC_TSTA,   KC_TSTX,   KC_0,      KC_COMM,   KC_DOT,    _______,   _______,   _______,   _______,   _______,   _______ },
         {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______ }
     },
 
@@ -161,6 +168,36 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case RST_KB:
             NVIC_SystemReset();
+            return false;
+        case KC_TSTC:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") "c");
+            }
+            return false;
+        case KC_TSTF:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") "f");
+            }
+            return false;
+        case KC_TSTA:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") "a");
+            }
+            return false;
+        case KC_TSTL:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") "l");
+            }
+            return false;
+        case KC_TSTD:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") SS_LCTL("l"));
+            }
+            return false;
+        case KC_TSTX:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LCTL(";") "e");
+            }
             return false;
     }
     return true; // keypress not handled
