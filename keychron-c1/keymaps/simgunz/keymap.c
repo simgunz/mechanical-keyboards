@@ -39,10 +39,6 @@ enum {
   KC_TSTX   // Test: Rerun Failed Tests (Ctrl+; E)
 };
 
-// custom tap dance
-enum {
-    TD_VSTS,  // leader key for vscode test commands
-};
 
 #define KC_TASK LGUI(KC_TAB)        // Task viewer
 #define KC_FLXP LGUI(KC_E)          // Windows file explorer
@@ -93,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         {   KC_GRV,    KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_6,      KC_7,      KC_8,      KC_9,      KC_0,      KC_MINS,   KC_EQL,    KC_BSPC,   KC_INS,    KC_HOME,   KC_PGUP },
         {   KC_MONUM,  KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,      KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_DEL,    KC_END,    KC_PGDN },
         {   KC_MOCP,   KC_A,      KC_S,      KC_D,      KC_F,      KC_G,      KC_H,      KC_J,      KC_K,      KC_L,      KC_SCLN,   KC_QUOT,   KC_NO,     KC_ENT,    KC_NO,     KC_NO,     KC_NO   },
-        {   KC_LSFT,   KC_NO,     KC_Z,      KC_X,      KC_C,      KC_V,      KC_B,      KC_N,      KC_M,      KC_COMM,   KC_DOT,    KC_SLSH,   KC_NO,     TD(TD_VSTS),KC_NO,    KC_UP,     KC_NO   },
+        {   KC_LSFT,   KC_NO,     KC_Z,      KC_X,      KC_C,      KC_V,      KC_B,      KC_N,      KC_M,      KC_COMM,   KC_DOT,    KC_SLSH,   KC_NO,     KC_RSFT,   KC_NO,     KC_UP,     KC_NO   },
         {   KC_LCTL,   KC_LWIN,   KC_LALT,   KC_NO,     KC_NO,     KC_NO,     KC_SPC,    KC_NO,     KC_NO,     KC_NO,     KC_RALT,   KC_RWIN,   KC_MOFN,   KC_RCTL,   KC_LEFT,   KC_DOWN,   KC_RGHT }
      },
 
@@ -209,8 +205,3 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_jk, KC_ESC),
 };
 
-// Tap Dance definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for right shift, twice for Ctrl+;, the vscode leader
-    [TD_VSTS] = ACTION_TAP_DANCE_DOUBLE(KC_RSFT, LCTL(KC_SCLN)),
-};
