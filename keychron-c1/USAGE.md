@@ -8,6 +8,14 @@
   - J/K/L → 4/5/6
   - N/M/Comma → 1/2/3
   - M → 0
+  
+#### VS Code Test Commands
+  - T → Run Test at Cursor (Ctrl+; C)
+  - Y → Rerun Last Run (Ctrl+; L)
+  - G → Run Tests in Current File (Ctrl+; F)
+  - H → Debug Last Run (Ctrl+; Ctrl+L)
+  - B → Run All Tests (Ctrl+; A)
+  - N → Rerun Failed Tests (Ctrl+; E)
 
 ### Navigation Layer  
 - **Caps Lock (hold)**: Access navigation and shortcuts
@@ -21,9 +29,7 @@
 
 ### Key Combinations
 - **J+K together**: Escape
-- **Right Shift**: 
-  - Tap once: Right Shift
-  - Tap twice: VS Code command palette (Ctrl+;)
+- **Right Shift**: Standard right shift key
 
 ### Media Controls
 - **F7/F8/F9**: Previous/Play/Next track
