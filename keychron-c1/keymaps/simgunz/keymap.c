@@ -54,7 +54,7 @@ enum {
 // layer modifiers
 #define KC_MOFN MO(WIN_FN)
 #define KC_MOCP MO(WIN_CAPS)
-#define KC_MONUM LT(WIN_NUMS, KC_A) // tap for A, hold for num layer
+#define KC_MONUM LT(WIN_NUMS, KC_TAB) // tap for TAB, hold for nums layer
 
 // key combinations
 #define KC_PWRD LCTL(KC_LEFT)
@@ -84,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         /*  0          1          2          3          4          5          6          7          8          9          10         11         12         13         14         15         16     */
         {   KC_ESC,    KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_MPRV,   KC_MPLY,   KC_MNXT,   KC_MUTE,   KC_VOLD,   KC_VOLU,   KC_NO,     KC_PSCR,   KC_NO,     RGB_TOG },
         {   KC_GRV,    KC_1,      KC_2,      KC_3,      KC_4,      KC_5,      KC_6,      KC_7,      KC_8,      KC_9,      KC_0,      KC_MINS,   KC_EQL,    KC_BSPC,   KC_INS,    KC_HOME,   KC_PGUP },
-        {   KC_TAB,    KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,      KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_DEL,    KC_END,    KC_PGDN },
-        {   KC_MOCP,   KC_MONUM,  KC_S,      KC_D,      KC_F,      KC_G,      KC_H,      KC_J,      KC_K,      KC_L,      KC_SCLN,   KC_QUOT,   KC_NO,     KC_ENT,    KC_NO,     KC_NO,     KC_NO   },
+        {   KC_MONUM,  KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,      KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_DEL,    KC_END,    KC_PGDN },
+        {   KC_MOCP,   KC_A,      KC_S,      KC_D,      KC_F,      KC_G,      KC_H,      KC_J,      KC_K,      KC_L,      KC_SCLN,   KC_QUOT,   KC_NO,     KC_ENT,    KC_NO,     KC_NO,     KC_NO   },
         {   KC_LSFT,   KC_NO,     KC_Z,      KC_X,      KC_C,      KC_V,      KC_B,      KC_N,      KC_M,      KC_COMM,   KC_DOT,    KC_SLSH,   KC_NO,     TD(TD_VSTS),KC_NO,    KC_UP,     KC_NO   },
         {   KC_LCTL,   KC_LWIN,   KC_LALT,   KC_NO,     KC_NO,     KC_NO,     KC_SPC,    KC_NO,     KC_NO,     KC_NO,     KC_RALT,   KC_RWIN,   KC_MOFN,   KC_RCTL,   KC_LEFT,   KC_DOWN,   KC_RGHT }
      },
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_NO,     _______,   _______,   _______ },
         {   _______,   KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    KC_F12,    _______,   _______,   _______ },
         {   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_PWRD,   KC_HOME,   KC_END,    KC_NWRD,   _______,   _______,   _______,   _______,   _______,   _______ },
-        {   _______,   KC_MONUM,  _______,   KC_BTN4,   KC_BTN5,   _______,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  KC_SHIN,   KC_BTN3,   KC_NO,     _______,   KC_NO,     KC_NO,     KC_NO   },
+        {   _______,  _______,   _______,   KC_BTN4,   KC_BTN5,   _______,   KC_LEFT,   KC_DOWN,   KC_UP,     KC_RIGHT,  KC_SHIN,   KC_BTN3,   KC_NO,     _______,   KC_NO,     KC_NO,     KC_NO   },
         {   _______,   KC_NO,     _______,   _______,   _______,   _______,   _______,   _______,   KC_BWRD,   KC_BSPC,   KC_DEL,    KC_DWRD,   KC_NO,     _______,   KC_NO,     _______,   KC_NO   },
         {   _______,   _______,   _______,   KC_NO,     KC_NO,     KC_NO,     _______,   KC_NO,     KC_NO,     KC_NO,     _______,   _______,   _______,   _______,   _______,   _______,   _______ }
     },
