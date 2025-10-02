@@ -182,15 +182,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     muted = !muted;
                 }
             }
-            if (muted) {
-                // pulsating red light when mic muted
-                rgb_matrix_mode_noeeprom(RGB_MATRIX_BREATHING);
-                rgb_matrix_set_color_all(RGB_RED);
-                rgb_matrix_set_speed_noeeprom(255);
-                rgb_matrix_enable_noeeprom();
-            } else {
-                rgb_matrix_disable_noeeprom();
-            }
             return false; // keypress handled
         case KC_TSTC:
             if (record->event.pressed) {
@@ -231,4 +222,3 @@ const uint16_t PROGMEM combo_jk[] = {KC_J, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo_jk, KC_ESC),
 };
-
