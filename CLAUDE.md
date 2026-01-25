@@ -22,6 +22,14 @@ Key features:
 
 **Path**: `/media/data/linux/mechanical-keyboards/keychron-c1/keymaps/simgunz/`
 
+## Editing the Keymap
+
+**IMPORTANT**: When the user asks to modify the keyboard layout, layers, keycodes, or edit keymap.c:
+- **ALWAYS use the `editing-keymap` skill** (`/editing-keymap` or invoke via Skill tool)
+- This skill handles proper alignment, validation, and keymap.c formatting
+- Do NOT manually edit keymap.c directly unless explicitly instructed
+- The skill requires Opus model for precision
+
 ## Core Files
 
 - **`keymap.c`** - Layer definitions, custom keycodes, process_record_user()
