@@ -18,6 +18,10 @@ Key features:
 - Tap dance: Right Shift (tap/double-tap for Shift/Ctrl+;)
 - Custom keycodes for VS Code test commands
 
+## Layout Location
+
+**Path**: `/media/data/linux/mechanical-keyboards/keychron-c1/keymaps/simgunz/`
+
 ## Core Files
 
 - **`keymap.c`** - Layer definitions, custom keycodes, process_record_user()
