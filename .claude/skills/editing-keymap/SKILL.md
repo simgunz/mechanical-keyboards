@@ -112,6 +112,15 @@ Col: 0=LCtrl 1=LWin 2=LAlt 3-5=gaps 6=Space 7-9=gaps 10=RAlt 11=RWin 12=Fn 13=RC
 - `KC_NO` - Position disabled
 - Custom keycodes are defined in the `enum` at top of file
 
+## Defining Custom Key Aliases
+
+Use `#define` for modifier combinations and key aliases (same pattern as `KC_TASK`, `KC_SNIP`, etc.):
+```c
+#define KC_DICT LCTL(LSFT(LALT(KC_SPC))) // description
+```
+
+Use `enum` + `process_record_user` only when custom logic is needed (e.g. `SEND_STRING`, conditional behavior, timers). Do NOT use enum for simple modifier combos.
+
 ## Common Mistakes to Avoid
 
 1. **Wrong column** - Always count from 0, use column header as guide
@@ -119,6 +128,7 @@ Col: 0=LCtrl 1=LWin 2=LAlt 3-5=gaps 6=Space 7-9=gaps 10=RAlt 11=RWin 12=Fn 13=RC
 3. **Missing comma** - Every entry except last needs comma
 4. **Partial keycode** - Always replace complete keycode name
 5. **Wrong layer** - Double-check layer name before editing
+6. **`replace_all` corrupting `#define`** - If the same pattern appears in both a `#define` and the keymap body, `replace_all` will break the `#define`. Replace each occurrence individually instead.
 
 ## Build Verification
 
