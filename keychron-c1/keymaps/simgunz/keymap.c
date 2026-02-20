@@ -54,7 +54,7 @@ enum {
 
 #define KC_KACT LWIN(KC_Q)          // KDE activities
 #define KC_MIC KC_F20               // Mute microphone
-#define KC_DICT LCTL(LSFT(LALT(KC_SPC))) // Handy dictation trigger
+#define KC_DICT LCTL(LSFT(KC_SPC)) // Handy dictation trigger
 
 // layer modifiers
 #define KC_MOFN MO(WIN_FN)
